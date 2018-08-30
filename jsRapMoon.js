@@ -16,12 +16,14 @@ $('<div>').addClass('light').appendTo(this);
 $('<div>').addClass('texture').appendTo(this);
 this.opt = $.extend({},options);
 var synodicMonth = 29.530588853;
-var date = new Date();
-var origDate = new Date(2012, 7, 31);
-var mills = date.getTime() - origDate.getTime();
-var daysElapsed = parseInt(mills/1000/60/60/24);
+var curDate = new Date();
+var orgDate = new Date(2012, 7, 31);
+var milSec = curDate.getTime() - orgDate.getTime();
+var daysElapsed = parseInt(milSec / 1000 / 60 / 60 / 24);
 var daysSinceLast = daysElapsed % synodicMonth; 
 var phase = daysSinceLast / synodicMonth;
+var b = w / 20;
+$('.light').css('filter','blur(' + b + 'px)');
 if(phase < 0.25)
 	$('.light').css({'border-right-width':(phase * 2 * w),'border-left-color':'white','background-color':'white','border-right-color':'black'});
 else if(phase < 0.5)
