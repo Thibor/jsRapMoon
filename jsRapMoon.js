@@ -10,28 +10,27 @@ $.fn.jsRapMoon = function(options){
 return this.each(function(){
 
 this.Render = function(){
-var w = $(this).width();
-$(this).height(w).addClass('rapMoon');
-$('<div>').addClass('light').appendTo(this);
-$('<div>').addClass('texture').appendTo(this);
-this.opt = $.extend({},options);
-var synodicMonth = 29.530588853;
-var curDate = new Date();
-var orgDate = new Date(2012, 7, 31);
-var milSec = curDate.getTime() - orgDate.getTime();
-var daysElapsed = parseInt(milSec / 1000 / 60 / 60 / 24);
-var daysSinceLast = daysElapsed % synodicMonth; 
-var phase = daysSinceLast / synodicMonth;
-var b = w / 20;
-$('.light').css('filter','blur(' + b + 'px)');
-if(phase < 0.25)
-	$('.light').css({'border-right-width':(phase * 2 * w),'border-left-color':'white','background-color':'white','border-right-color':'black'});
-else if(phase < 0.5)
-	$('.light').css({'border-left-width':((0.5 - phase) * 2 * w),'border-left-color':'white','background-color':'black','border-right-color':'black'});	
-else if(phase < 0.75)
-	$('.light').css({'border-right-width':((phase - 0.5) * 2 * w),'border-left-color':'black','background-color':'black','border-right-color':'white'});
-else
-	$('.light').css({'border-left-width':((1 - phase) * 2 * w),'border-left-color':'black','background-color':'white','border-right-color':'white'});
+	this.opt = $.extend({},options);	
+	var w = $(this).width();
+	$(this).height(w).addClass('rapMoon');
+	$('<div>').addClass('light').appendTo(this);
+	$('<div>').addClass('texture').appendTo(this);
+	var synodicMonth = 29.530588853;
+	var curDate = new Date();
+	var orgDate = new Date(2012, 7, 31);
+	var milSec = curDate.getTime() - orgDate.getTime();
+	var daysElapsed = parseInt(milSec / 1000 / 60 / 60 / 24);
+	var daysSinceLast = daysElapsed % synodicMonth; 
+	var phase = daysSinceLast / synodicMonth;
+	$('.light').css('filter','blur(' + (w / 20) + 'px)');
+	if(phase < 0.25)
+		$('.light').css({'border-right-width':(phase * 2 * w),'border-left-color':'white','background-color':'white','border-right-color':'black'});
+	else if(phase < 0.5)
+		$('.light').css({'border-left-width':((0.5 - phase) * 2 * w),'border-left-color':'white','background-color':'black','border-right-color':'black'});	
+	else if(phase < 0.75)
+		$('.light').css({'border-right-width':((phase - 0.5) * 2 * w),'border-left-color':'black','background-color':'black','border-right-color':'white'});
+	else
+		$('.light').css({'border-left-width':((1 - phase) * 2 * w),'border-left-color':'black','background-color':'white','border-right-color':'white'});
 }
 
 this.Render();

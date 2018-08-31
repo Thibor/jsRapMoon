@@ -31,6 +31,9 @@ width:240px;
 -webkit-user-select: none;
 -moz-user-select: none;
 }
+#GitHub:after{
+content:'Star me on GitHub';
+}
 #GitHub:hover{
 background-color:#f00;
 }
