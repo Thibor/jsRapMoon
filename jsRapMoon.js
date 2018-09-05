@@ -24,13 +24,13 @@ this.Render = function(){
 	var phase = daysSinceLast / synodicMonth;
 	$('.light').css('filter','blur(' + (w / 20) + 'px)');
 	if(phase < 0.25)
-		$('.light').css({'border-right-width':(phase * 2 * w),'border-left-color':'white','background-color':'white','border-right-color':'black'});
+		$('.light').css({'border-right-width':(phase * 2 * w),'border-left-color':'#fff','background-color':'#fff','border-right-color':'#111'});
 	else if(phase < 0.5)
-		$('.light').css({'border-left-width':((0.5 - phase) * 2 * w),'border-left-color':'white','background-color':'black','border-right-color':'black'});	
+		$('.light').css({'border-left-width':((0.5 - phase) * 2 * w),'border-left-color':'#fff','background-color':'#111','border-right-color':'#111'});	
 	else if(phase < 0.75)
-		$('.light').css({'border-right-width':((phase - 0.5) * 2 * w),'border-left-color':'black','background-color':'black','border-right-color':'white'});
+		$('.light').css({'border-right-width':((phase - 0.5) * 2 * w),'border-left-color':'#111','background-color':'#111','border-right-color':'#fff'});
 	else
-		$('.light').css({'border-left-width':((1 - phase) * 2 * w),'border-left-color':'black','background-color':'white','border-right-color':'white'});
+		$('.light').css({'border-left-width':((1 - phase) * 2 * w),'border-left-color':'#111','background-color':'#fff','border-right-color':'#fff'});
 }
 
 this.Render();
