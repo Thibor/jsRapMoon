@@ -6,8 +6,8 @@ background-color:black;
 box-shadow:inset -2px -2px 4px rgba(0,0,0,8),inset 2px 2px 4px rgba(255,255,255,8),2px 2px 4px rgba(0,0,0,8),0px 0px 4px black;
 }
 .light{
-border-radius:50%;		
 border-style:solid;
+border-width:0px;
 box-sizing:border-box;	
 position:absolute;
 width:100%;
