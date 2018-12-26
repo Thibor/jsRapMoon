@@ -7,7 +7,8 @@ $('.rapMoon').each(function(){
 (function($){
 $.fn.jsRapMoon = function(options){
 
-return this.each(function(){	
+return this.each(function(){
+this.Render = function(){	
 	var w = $(this).width();
 	var dark = '#444';
 	var synodicMonth = 29.530588853;
@@ -29,6 +30,9 @@ return this.each(function(){
 		$('.light').css({'border-right-width':((phase - 0.5) * 2 * w),'border-left-color':dark,'background-color':dark,'border-right-color':'#fff'});
 	else
 		$('.light').css({'border-left-width':((1 - phase) * 2 * w),'border-left-color':dark,'background-color':'#fff','border-right-color':'#fff'});
+}
+
+this.Render();
 })
 
 }})(jQuery);
